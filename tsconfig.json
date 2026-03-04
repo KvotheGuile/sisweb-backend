@@ -45,6 +45,10 @@
     "module": "commonjs",
     //"target": "es2016",
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+
+    //extra
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }
