@@ -13,7 +13,7 @@ productRouter.post('/createproduct', createProduct);
 
 productRouter.patch('/updateproduct/:id', modifyProduct);  
 
-productRouter.delete('/deleteproduct/:id', deleteProduct);  
+productRouter.delete('/deleteproduct', deleteProduct);  
 
 export default productRouter; 
 
