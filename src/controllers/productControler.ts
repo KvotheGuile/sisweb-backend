@@ -55,10 +55,24 @@ export const getAllProducts: RequestHandler = (req: Request, res: Response) => {
   }); 
 }; 
  
-// Find a single Product with an id 
+/// Get products by Id 
 export const getProductById: RequestHandler = (req: Request, res: Response) => { 
- 
-   
+  //
+  Product.findByPk(req.params.id) 
+  .then((data: Product | null) => { 
+    return res.status(200).json({ 
+      status: "success", 
+      message: "Products successfully retrieved", 
+      payload: data, 
+    }); 
+  }) 
+  .catch((err) => { 
+    return res.status(500).json({ 
+      status: "error", 
+      message: "Something happened retrieving all products. " + err.message, 
+      payload: null, 
+    }); 
+  }); 
 }; 
  
 // Update a Product by the id in the request 
