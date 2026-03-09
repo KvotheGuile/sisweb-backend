@@ -9,7 +9,7 @@ productRouter.get('/getallproducts', getAllProducts);
 
 productRouter.get('/getproduct/:id', getProductById);  
 
-productRouter.post('/createproduct/:id', createProduct);  
+productRouter.post('/createproduct', createProduct);  
 
 productRouter.patch('/updateproduct/:id', modifyProduct);  
 
