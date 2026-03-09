@@ -1,4 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
+import { Product } from "../models/product"; 
+
 //import * as dotenv from 'dotenv';
 
 const { loadEnvFile } = require('node:process');
@@ -16,14 +18,13 @@ const connection = new Sequelize({
   models: [ ] 
 }); 
 
-async function connectionDB() {
-  try {
-    await connection.authenticate(); // authenticate verifica la conexión
-    console.log("Conexión exitosa a la base de datos MySQL.");
-    await connection.sync();
-  } catch (e) {
-    console.log("Error al conectar con la base de datos:", e);
-  }
-}
 
-export default connectionDB;
+
+async function connectionDB(){ 
+try{ 
+await connection.sync(); 
+}catch(e){ 
+console.log(e); 
+} 
+} 
+export default connectionDB; 
