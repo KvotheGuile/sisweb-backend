@@ -1,10 +1,17 @@
 import { Sequelize } from "sequelize-typescript";
+//import * as dotenv from 'dotenv';
+
+const { loadEnvFile } = require('node:process');
+loadEnvFile('../../.env');
+
+const userID = process.env.USERNAME ?? "";
+const userPassword = process.env.PASSWORD ?? "";
 
 const connection = new Sequelize({ 
   database: 'sisweb_db', 
   dialect: 'postgres',
-  username: '<username>', 
-  password: '<password>', 
+  username: userID, 
+  password: userPassword, 
   storage: ':memory:', 
   models: [ ] 
 }); 
