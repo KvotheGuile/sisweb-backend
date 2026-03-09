@@ -4,10 +4,12 @@ import { Product } from "../models/product";
 //import * as dotenv from 'dotenv';
 
 const { loadEnvFile } = require('node:process');
-loadEnvFile('../../.env');
+loadEnvFile('.env');
 
-const userID = process.env.USERNAME ?? "";
-const userPassword = process.env.PASSWORD ?? "";
+const userID = process.env.USERNAME_SQL ?? "unknown";
+const userPassword = process.env.PASSWORD_SQL ?? "unknown";
+
+console.log(`username: ${userID}, password: ${userPassword}`);
 
 const connection = new Sequelize({ 
   database: 'sisweb_db', 
@@ -15,7 +17,11 @@ const connection = new Sequelize({
   username: userID, 
   password: userPassword, 
   storage: ':memory:', 
-  models: [ ] 
+  
+  models: [ 
+  Product 
+  ] 
+
 }); 
 
 
