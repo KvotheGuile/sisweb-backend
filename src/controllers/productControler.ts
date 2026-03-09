@@ -1,13 +1,38 @@
 import { RequestHandler, Request, Response } from "express";
 import { Product } from "../models/product"; 
  
- 
-// Create and Save a new Product 
+
+//Create new product 
 export const createProduct: RequestHandler = (req: Request, res: Response) => { 
- 
- 
+  //Validate request 
+  if (!req.body) { 
+    return res.status(400).json({ 
+      status: "error", 
+      message: "Content can not be empty", 
+      payload: null, 
+    }); 
+  } 
    
-} 
+// Save Product in the database 
+  const product = { ...req.body }; 
+  Product.create(product) 
+    .then((data: Product | null) => { 
+      res.status(200).json({ 
+        status: "success", 
+        message: "Product successfully created", 
+        payload: data, 
+      }); 
+    }) 
+    .catch((err) => { 
+       res.status(500).json({ 
+         status: "error", 
+         message: "Something happened creating a product. " + err.message, 
+         payload: null, 
+       }); 
+    }); 
+}; 
+
+
  
 // Retrieve all Products from the database. 
 export const getAllProducts: RequestHandler = (req: Request, res: Response) => { 
