@@ -34,10 +34,25 @@ export const createProduct: RequestHandler = (req: Request, res: Response) => {
 
 
  
-// Retrieve all Products from the database. 
+// Get all products using Promises
 export const getAllProducts: RequestHandler = (req: Request, res: Response) => { 
- 
-  
+  //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
+   
+   Product.findAll() 
+   .then((data: Product[]) => { 
+      return res.status(200).json({ 
+         status: "success", 
+           message: "Products successfully retrieved", 
+           payload: data, 
+      }); 
+    }) 
+    .catch((err) => { 
+       return res.status(500).json({ 
+       status: "error", 
+       message: "Something happened retrieving all products. " + err.message, 
+       payload: null, 
+    }); 
+  }); 
 }; 
  
 // Find a single Product with an id 
