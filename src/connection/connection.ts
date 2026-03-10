@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { Product } from "../models/product"; 
+import { Company } from "../models/company";
 
 //import * as dotenv from 'dotenv';
 
@@ -19,7 +20,8 @@ const connection = new Sequelize({
   storage: ':memory:', 
   
   models: [ 
-  Product 
+  Product,
+  Company
   ] 
 
 }); 
