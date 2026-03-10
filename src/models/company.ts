@@ -4,22 +4,22 @@ import {Optional} from 'sequelize';
 
 interface ProductAttributes{ 
   id: number; 
-  nombre: string;
+  name: string;
   contact_email: string;
   contact_phone: string;
-  ubicacion: string;
+  location: string;
 } 
 
 interface ProductCreationAttributes extends Optional<ProductAttributes, 'id'>{} 
 
 @Table ({ 
-  tableName: "Empresas" 
+  tableName: "Company" 
 }) 
 
 export class Product extends Model<ProductAttributes, ProductCreationAttributes>{ 
 
    @Column 
-   nombre!: string; 
+   name!: string; 
 
    @Column({ 
       type: DataType.STRING 
@@ -30,7 +30,7 @@ export class Product extends Model<ProductAttributes, ProductCreationAttributes>
    contact_phone?: string;
 
    @Column
-   ubicacion?: string;
+   location?: string;
 
    @CreatedAt 
    @Column 
