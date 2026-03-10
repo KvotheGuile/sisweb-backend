@@ -2,7 +2,7 @@
 import {Table, Model, Column, CreatedAt, UpdatedAt, DataType} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize'; 
 
-interface ProductAttributes{ 
+interface CompanyAttributes{ 
   id: number; 
   name: string;
   contact_email: string;
@@ -10,13 +10,13 @@ interface ProductAttributes{
   location: string;
 } 
 
-interface ProductCreationAttributes extends Optional<ProductAttributes, 'id'>{} 
+interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'id'>{} 
 
 @Table ({ 
   tableName: "Company" 
 }) 
 
-export class Product extends Model<ProductAttributes, ProductCreationAttributes>{ 
+export class Company extends Model<CompanyAttributes, CompanyCreationAttributes>{ 
 
    @Column 
    name!: string; 
