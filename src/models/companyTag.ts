@@ -16,3 +16,6 @@ export class CompanyTag extends Model<CompanyTag> {
   @Column
   tagId!: number;
 }
+/*
+Company.belongsToMany(Tag, { through: CompanyTag, foreignKey: 'companyId' });
+Tag.belongsToMany(Company, { through: CompanyTag, foreignKey: 'tagId' });//*/
