@@ -1,6 +1,7 @@
 import { RequestHandler, Request, Response } from "express";
 import { Company } from "../models/company"; 
- 
+import { Tag } from "../models/tag";
+import { CompanyTag } from "../models/companyTag";
 
 //Create new company
 export const createCompany: RequestHandler = (req: Request, res: Response) => { 
@@ -38,7 +39,19 @@ export const createCompany: RequestHandler = (req: Request, res: Response) => {
 export const getAllCompanies: RequestHandler = (req: Request, res: Response) => { 
   //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
    
-   Company.findAll() 
+   Company.findAll(
+    {
+      //attributes:{ exclude: }
+      include: [{
+        model: Tag, 
+        through: 
+        {
+          attributes: []
+        }// ['id', 'name', 'category']
+      }]
+      
+    }
+   ) 
    .then((data: Company[]) => { 
       return res.status(200).json({ 
          status: "success", 
