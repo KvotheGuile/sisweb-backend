@@ -1,5 +1,5 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, BelongsToMany} from 'sequelize-typescript'; 
+import {Table, Model, Column, DataType, BelongsToMany} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize'; 
 import { Company } from './company';
 import { CompanyTag } from './companyTag';
