@@ -27,7 +27,10 @@ const connection = new Sequelize({
   Company,
   Tag,
   CompanyTag
-  ] 
+  ], 
+  define: {
+    timestamps: false
+  }
 
 }); 
 
