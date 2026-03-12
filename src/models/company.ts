@@ -43,6 +43,6 @@ export class Company extends Model<CompanyAttributes, CompanyCreationAttributes>
    updatedAt!: Date; 
 
   @BelongsToMany(() => Tag, () => CompanyTag)
-  roles!: Tag[];
+  declare roles?: Tag[];
 
 } 

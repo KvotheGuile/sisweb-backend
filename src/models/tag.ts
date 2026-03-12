@@ -25,6 +25,6 @@ export class Tag extends Model<TagAttributes, TagCreationAttributes>{
    category!: number;
 
    @BelongsToMany(() => Company, () => CompanyTag)
-   roles!: Company[];
+   declare roles?: Company[];
 
 } 
