@@ -5,24 +5,20 @@ import { Tag } from './tag';
 import { CompanyTag } from './companyTag';
 
 interface CompanyAttributes{ 
-  companyId: number; 
+  id: number; 
   name: string;
   contact_email: string;
   contact_phone: string;
   location: string;
 } 
 
-interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'companyId'>{} 
+interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'id'>{} 
 
 @Table ({ 
   tableName: "Companies" 
 }) 
 
 export class Company extends Model<CompanyAttributes, CompanyCreationAttributes>{ 
-
-   @PrimaryKey
-   @Column
-   companyId!: number;
 
    @Column 
    name!: string; 
