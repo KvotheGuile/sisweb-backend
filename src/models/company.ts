@@ -1,5 +1,5 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, BelongsToMany} from 'sequelize-typescript'; 
+import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, BelongsToMany, PrimaryKey} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize'; 
 import { Tag } from './tag';
 import { CompanyTag } from './companyTag';
@@ -19,6 +19,10 @@ interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'company
 }) 
 
 export class Company extends Model<CompanyAttributes, CompanyCreationAttributes>{ 
+
+   @PrimaryKey
+   @Column
+   companyId!: number;
 
    @Column 
    name!: string; 
