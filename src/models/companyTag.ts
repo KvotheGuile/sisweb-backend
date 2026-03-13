@@ -12,7 +12,7 @@ export class CompanyTag extends Model<CompanyTag> {
   @Column
   companyId!: number;
 
-  @HasOne(() => Company, { foreignKey: "id" })
+  @HasOne(() => Company, { foreignKey: "companyId" })
   declare company?: Company | null;
 
   @ForeignKey(() => Tag)

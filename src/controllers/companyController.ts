@@ -101,7 +101,7 @@ export const modifyCompany:RequestHandler = (req: Request, res: Response) => {
   } 
 
 // Save Company in the database 
-  Company.update({ ...req.body }, { where: { id: req.params.id } }) 
+  Company.update({ ...req.body }, { where: { companyId: req.params.id } }) 
   .then((isUpdated) => { 
     if (isUpdated) { 
       return res.status(200).json({ 
@@ -128,9 +128,9 @@ export const modifyCompany:RequestHandler = (req: Request, res: Response) => {
  
 ///Delete Company
 export const deleteCompany: RequestHandler = async (req: Request, res: Response): Promise<void> => { 
-    const { id } = req.body; 
+    const { companyId } = req.body; 
     try { 
-      await Company.destroy({ where: { id } }); 
+      await Company.destroy({ where: { companyId } }); 
       res.status(200).json({ message: "Company deleted" }); 
     } catch (error) { 
       res.status(500).json({ 

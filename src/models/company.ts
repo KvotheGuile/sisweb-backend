@@ -5,14 +5,14 @@ import { Tag } from './tag';
 import { CompanyTag } from './companyTag';
 
 interface CompanyAttributes{ 
-  id: number; 
+  companyId: number; 
   name: string;
   contact_email: string;
   contact_phone: string;
   location: string;
 } 
 
-interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'id'>{} 
+interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'companyId'>{} 
 
 @Table ({ 
   tableName: "Companies" 
