@@ -1,6 +1,8 @@
 
-import {Table, Model, Column, CreatedAt, UpdatedAt, DataType} from 'sequelize-typescript'; 
+import {Table, Model, Column, CreatedAt, UpdatedAt, DataType, BelongsToMany} from 'sequelize-typescript'; 
 import {Optional} from 'sequelize'; 
+import { Tag } from './tag';
+import { CompanyTag } from './companyTag';
 
 interface CompanyAttributes{ 
   id: number; 
@@ -13,7 +15,7 @@ interface CompanyAttributes{
 interface CompanyCreationAttributes extends Optional<CompanyAttributes, 'id'>{} 
 
 @Table ({ 
-  tableName: "Company" 
+  tableName: "Companies" 
 }) 
 
 export class Company extends Model<CompanyAttributes, CompanyCreationAttributes>{ 
@@ -39,4 +41,8 @@ export class Company extends Model<CompanyAttributes, CompanyCreationAttributes>
    @UpdatedAt 
    @Column 
    updatedAt!: Date; 
+
+  @BelongsToMany(() => Tag, () => CompanyTag)
+  declare roles?: Tag[];
+
 } 

@@ -1,6 +1,9 @@
 import { Sequelize } from "sequelize-typescript";
 import { Product } from "../models/product"; 
 import { Company } from "../models/company";
+import { Tag } from "../models/tag";
+import { CompanyTag } from "../models/companyTag";
+import { relationAssociation } from "../models/associations";
 
 //import * as dotenv from 'dotenv';
 
@@ -21,12 +24,17 @@ const connection = new Sequelize({
   
   models: [ 
   Product,
-  Company
-  ] 
+  Company,
+  Tag,
+  CompanyTag
+  ], 
+  define: {
+    timestamps: false
+  }
 
 }); 
 
-
+relationAssociation();
 
 async function connectionDB(){ 
 try{ 
