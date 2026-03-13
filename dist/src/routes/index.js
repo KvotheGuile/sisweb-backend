@@ -5,8 +5,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const productRoutes_1 = __importDefault(require("./productRoutes"));
+const companyRoutes_1 = __importDefault(require("./companyRoutes"));
+const tagRoutes_1 = __importDefault(require("./tagRoutes"));
+const companyTagRoutes_1 = __importDefault(require("./companyTagRoutes"));
 const apiRouter = (0, express_1.Router)();
 apiRouter.use('/product', productRoutes_1.default);
+apiRouter.use('/company', companyRoutes_1.default);
+apiRouter.use('/tag', tagRoutes_1.default);
+apiRouter.use('/companytags', companyTagRoutes_1.default);
 apiRouter.get('/', (req, res) => {
     res.send('Hello World!');
 });

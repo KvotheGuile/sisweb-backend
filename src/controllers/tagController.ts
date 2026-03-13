@@ -65,6 +65,30 @@ export const getAlltags: RequestHandler = (req: Request, res: Response) => {
     }); 
   }); 
 }; 
+
+
+ 
+// Get all tags using Promises
+export const getAllTagsWithoutCompanies: RequestHandler = (req: Request, res: Response) => { 
+  //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
+   
+   Tag.findAll() 
+   .then((data: Tag[]) => { 
+      return res.status(200).json({ 
+         status: "success", 
+           message: "Tags successfully retrieved", 
+           payload: data, 
+      }); 
+    }) 
+    .catch((err) => { 
+       return res.status(500).json({ 
+       status: "error", 
+       message: "Something happened retrieving all tags. " + err.message, 
+       payload: null, 
+    }); 
+  }); 
+}; 
+ 
  
 /// Get Tag by Id 
 export const getTagById: RequestHandler = (req: Request, res: Response) => { 

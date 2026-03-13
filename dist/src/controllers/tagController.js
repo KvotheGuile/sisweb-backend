@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteTag = exports.modifyTag = exports.getTagById = exports.getAlltags = exports.createTag = void 0;
+exports.deleteTag = exports.modifyTag = exports.getTagById = exports.getAllTagsWithoutCompanies = exports.getAlltags = exports.createTag = void 0;
 const company_1 = require("../models/company");
 const tag_1 = require("../models/tag");
 //Create new tag
@@ -68,6 +68,26 @@ const getAlltags = (req, res) => {
     });
 };
 exports.getAlltags = getAlltags;
+// Get all tags using Promises
+const getAllTagsWithoutCompanies = (req, res) => {
+    //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
+    tag_1.Tag.findAll()
+        .then((data) => {
+        return res.status(200).json({
+            status: "success",
+            message: "Tags successfully retrieved",
+            payload: data,
+        });
+    })
+        .catch((err) => {
+        return res.status(500).json({
+            status: "error",
+            message: "Something happened retrieving all tags. " + err.message,
+            payload: null,
+        });
+    });
+};
+exports.getAllTagsWithoutCompanies = getAllTagsWithoutCompanies;
 /// Get Tag by Id 
 const getTagById = (req, res) => {
     //

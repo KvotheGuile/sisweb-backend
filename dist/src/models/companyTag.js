@@ -22,10 +22,18 @@ __decorate([
     __metadata("design:type", Number)
 ], CompanyTag.prototype, "companyId", void 0);
 __decorate([
+    (0, sequelize_typescript_1.HasOne)(() => company_1.Company, { foreignKey: "id" }),
+    __metadata("design:type", Object)
+], CompanyTag.prototype, "company", void 0);
+__decorate([
     (0, sequelize_typescript_1.ForeignKey)(() => tag_1.Tag),
     sequelize_typescript_1.Column,
     __metadata("design:type", Number)
 ], CompanyTag.prototype, "tagId", void 0);
+__decorate([
+    (0, sequelize_typescript_1.HasOne)(() => tag_1.Tag, { foreignKey: "id" }),
+    __metadata("design:type", Object)
+], CompanyTag.prototype, "tag", void 0);
 exports.CompanyTag = CompanyTag = __decorate([
     (0, sequelize_typescript_1.Table)({
         tableName: 'CompanyTags'

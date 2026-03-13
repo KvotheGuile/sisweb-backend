@@ -1,4 +1,4 @@
-import { Table, Column, Model, ForeignKey } from 'sequelize-typescript';
+import { Table, Column, Model, ForeignKey, HasOne } from 'sequelize-typescript';
 import { Company } from './company';
 import { Tag } from './tag';
 
@@ -12,9 +12,15 @@ export class CompanyTag extends Model<CompanyTag> {
   @Column
   companyId!: number;
 
+  @HasOne(() => Company, { foreignKey: "id" })
+  declare company?: Company | null;
+
   @ForeignKey(() => Tag)
   @Column
   tagId!: number;
+
+  @HasOne(() => Tag, { foreignKey: "id" })
+  declare tag?: Company | null;
 }
 /*
 Company.belongsToMany(Tag, { through: CompanyTag, foreignKey: 'companyId' });
