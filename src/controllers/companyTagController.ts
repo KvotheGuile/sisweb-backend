@@ -43,7 +43,7 @@ export const getAllCompanyTags: RequestHandler = (req: Request, res: Response) =
    CompanyTag.findAll(
     {
       attributes:{ exclude: ['tagId', 'companyId'] },
-      include: [{ model: Company, attributes: ['id', 'name']},
+      include: [{ model: Company, attributes: ['id', 'name']}, 
                 { model: Tag, attributes: ['id', 'name']}]
     }
    ) 
