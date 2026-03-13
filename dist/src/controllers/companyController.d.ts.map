@@ -1,0 +1,1 @@
+{"version":3,"file":"companyController.d.ts","sourceRoot":"","sources":["../../../src/controllers/companyController.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,cAAc,EAAqB,MAAM,SAAS,CAAC;AAM5D,eAAO,MAAM,aAAa,EAAE,cA2B3B,CAAC;AAKF,eAAO,MAAM,eAAe,EAAE,cA8B7B,CAAC;AAGF,eAAO,MAAM,cAAc,EAAE,cAiB5B,CAAC;AAIF,eAAO,MAAM,aAAa,EAAC,cAkC1B,CAAC;AAGF,eAAO,MAAM,aAAa,EAAE,cAW3B,CAAC"}
