@@ -5,15 +5,15 @@ import { createProduct, deleteProduct,  getAllProducts,  getProductById,  modify
 
 const productRouter:Router = Router();  
 
-productRouter.get('/getallproducts', getAllProducts);  
+productRouter.get('/', getAllProducts);  
 
-productRouter.get('/getproduct/:id', getProductById);  
+productRouter.get('/:id', getProductById);  
 
-productRouter.post('/createproduct', createProduct);  
+productRouter.post('/', createProduct);  
 
-productRouter.patch('/updateproduct/:id', modifyProduct);  
+productRouter.patch('/:id', modifyProduct);  
 
-productRouter.delete('/deleteproduct', deleteProduct);  
+productRouter.delete('/', deleteProduct);  
 
 export default productRouter; 
 

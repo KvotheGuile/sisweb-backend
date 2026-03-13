@@ -5,15 +5,15 @@ import { createCompany, deleteCompany,  getAllCompanies,  getCompanyById,  modif
 
 const companyRouter:Router = Router();  
 
-companyRouter.get('/getallcompanies', getAllCompanies);  
+companyRouter.get('/', getAllCompanies);  
 
-companyRouter.get('/getcompany/:id', getCompanyById);  
+companyRouter.get('/:id', getCompanyById);  
 
-companyRouter.post('/createcompany', createCompany);  
+companyRouter.post('/', createCompany);  
 
-companyRouter.patch('/updatecompany/:id', modifyCompany);  
+companyRouter.patch('/:id', modifyCompany);  
 
-companyRouter.delete('/deletecompany', deleteCompany);  
+companyRouter.delete('/', deleteCompany);  
 
 export default companyRouter; 
 
