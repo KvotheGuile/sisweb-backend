@@ -12,6 +12,10 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
 const product_1 = require("../models/product");
+const company_1 = require("../models/company");
+const tag_1 = require("../models/tag");
+const companyTag_1 = require("../models/companyTag");
+const associations_1 = require("../models/associations");
 //import * as dotenv from 'dotenv';
 const { loadEnvFile } = require('node:process');
 loadEnvFile('.env');
@@ -25,9 +29,16 @@ const connection = new sequelize_typescript_1.Sequelize({
     password: userPassword,
     storage: ':memory:',
     models: [
-        product_1.Product
-    ]
+        product_1.Product,
+        company_1.Company,
+        tag_1.Tag,
+        companyTag_1.CompanyTag
+    ],
+    define: {
+        timestamps: false
+    }
 });
+(0, associations_1.relationAssociation)();
 function connectionDB() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
