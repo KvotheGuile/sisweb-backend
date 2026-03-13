@@ -44,10 +44,8 @@ export const getAlltags: RequestHandler = (req: Request, res: Response) => {
       //attributes:{ exclude: }
       include: [{
         model: Company, 
-        through: 
-        {
-          attributes: []
-        }// ['id', 'name', 'category']
+        //through: {attributes: []}
+        attributes: ['name']
       }]
       
     }
