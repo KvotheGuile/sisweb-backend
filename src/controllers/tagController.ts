@@ -69,7 +69,16 @@ export const getAlltags: RequestHandler = (req: Request, res: Response) => {
 /// Get Tag by Id 
 export const getTagById: RequestHandler = (req: Request, res: Response) => { 
   //
-  Tag.findByPk(Number(req.params.id)) 
+  Tag.findByPk(Number(req.params.id), 
+    {
+      //attributes:{ exclude: }
+      include: [{
+        model: Company, 
+        //through: {attributes: []}
+        attributes: ['name']
+      }]
+      
+    }) 
   .then((data: Tag | null) => { 
     return res.status(200).json({ 
       status: "success", 
