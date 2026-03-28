@@ -10,8 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTagFromCompany = exports.getAllCompanyTags = exports.createCompanyTag = void 0;
-const company_1 = require("../models/company");
-const tag_1 = require("../models/tag");
 const companyTag_1 = require("../models/companyTag");
 //Create new 
 const createCompanyTag = (req, res) => {
@@ -46,9 +44,8 @@ exports.createCompanyTag = createCompanyTag;
 const getAllCompanyTags = (req, res) => {
     //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
     companyTag_1.CompanyTag.findAll({
-        attributes: { exclude: ['tagId', 'companyId'] },
-        include: [{ model: company_1.Company, attributes: ['id', 'name'] },
-            { model: tag_1.Tag, attributes: ['id', 'name'] }]
+    //attributes:{ exclude: ['tagId', 'companyId'] },
+    //include: [{ model: Company, attributes: ['id', 'name']}, { model: Tag, attributes: ['id', 'name']}]
     })
         .then((data) => {
         return res.status(200).json({
