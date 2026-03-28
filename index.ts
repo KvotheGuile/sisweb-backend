@@ -3,10 +3,12 @@ import express, {Express, Request, Response} from 'express';
 import morgan from 'morgan';
 import connectionDB from './src/connection/connection'; 
 import apiRouter from './src/routes'; 
+import cors from 'cors';
 
 const app: Express = express();
 const port: number = 3000
 
+app.use(cors({ origin: true }))
 app.use(morgan('dev'))
 app.use(express.json());  
 app.use(apiRouter); 
