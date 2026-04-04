@@ -4,6 +4,7 @@ import { Company } from "../models/company";
 import { Tag } from "../models/tag";
 import { CompanyTag } from "../models/companyTag";
 import { relationAssociation } from "../models/associations";
+import { Category } from "../models/category";
 
 //import * as dotenv from 'dotenv';
 
@@ -26,7 +27,8 @@ const connection = new Sequelize({
   Product,
   Company,
   Tag,
-  CompanyTag
+  CompanyTag,
+  Category
   ], 
   define: {
     timestamps: false
