@@ -87,7 +87,7 @@ export const modifyCategory:RequestHandler = (req: Request, res: Response) => {
   } 
 
     // Save Category in the database 
-  Category.update({ ...req.body }, { where: { categoryId: req.params.id } }) 
+  Category.update({ ...req.body }, { where: { id: req.params.id } }) 
   .then((isUpdated) => { 
     if (isUpdated) { 
       return res.status(200).json({ 
@@ -114,9 +114,9 @@ export const modifyCategory:RequestHandler = (req: Request, res: Response) => {
  
 ///Delete category
 export const deleteCategory: RequestHandler = async (req: Request, res: Response): Promise<void> => { 
-    const { categoryId } = req.body; 
+    const { id } = req.body; 
     try { 
-      await Category.destroy({ where: { categoryId } }); 
+      await Category.destroy({ where: { id } }); 
       res.status(200).json({ message: "Category deleted" }); 
     } catch (error) { 
       res.status(500).json({ 
