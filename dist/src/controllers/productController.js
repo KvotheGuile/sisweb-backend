@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteProduct = exports.modifyProduct = exports.getProductById = exports.getAllProducts = exports.createProduct = void 0;
 const product_1 = require("../models/product");
+const category_1 = require("../models/category");
 //Create new product 
 const createProduct = (req, res) => {
     //Validate request 
@@ -43,7 +44,10 @@ exports.createProduct = createProduct;
 // Get all products using Promises
 const getAllProducts = (req, res) => {
     //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
-    product_1.Product.findAll()
+    product_1.Product.findAll({
+        attributes: { exclude: ["categoryId"] },
+        include: [{ model: category_1.Category, attributes: ["id", "title"] }]
+    })
         .then((data) => {
         return res.status(200).json({
             status: "success",

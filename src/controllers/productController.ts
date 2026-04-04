@@ -1,5 +1,6 @@
 import { RequestHandler, Request, Response } from "express";
 import { Product } from "../models/product"; 
+import { Category } from "../models/category";
  
 
 //Create new product 
@@ -38,7 +39,12 @@ export const createProduct: RequestHandler = (req: Request, res: Response) => {
 export const getAllProducts: RequestHandler = (req: Request, res: Response) => { 
   //Calling the Sequelize findAll method. This is the same that a SELECT * FROM PRODUCT in a SQL query. 
    
-   Product.findAll() 
+   Product.findAll(
+    {
+      attributes: { exclude: ["categoryId"]},
+      include: [{model: Category, attributes: ["id", "title"]}]
+    }
+   ) 
    .then((data: Product[]) => { 
       return res.status(200).json({ 
          status: "success", 
