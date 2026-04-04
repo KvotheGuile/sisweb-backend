@@ -10,7 +10,8 @@ interface ProductAttributes{
   price: number ; 
   discountPercentage: number ; 
   rating: number ; 
-  stock: number ; 
+  stock: number ;
+  categoryId: number ;
 } 
 
 interface ProductCreationAttributes extends Optional<ProductAttributes, 'id'>{} 

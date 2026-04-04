@@ -16,6 +16,7 @@ const company_1 = require("../models/company");
 const tag_1 = require("../models/tag");
 const companyTag_1 = require("../models/companyTag");
 const associations_1 = require("../models/associations");
+const category_1 = require("../models/category");
 //import * as dotenv from 'dotenv';
 const { loadEnvFile } = require('node:process');
 loadEnvFile('.env');
@@ -32,7 +33,8 @@ const connection = new sequelize_typescript_1.Sequelize({
         product_1.Product,
         company_1.Company,
         tag_1.Tag,
-        companyTag_1.CompanyTag
+        companyTag_1.CompanyTag,
+        category_1.Category
     ],
     define: {
         timestamps: false
