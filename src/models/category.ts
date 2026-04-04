@@ -4,11 +4,11 @@ import {Optional} from 'sequelize';
 import { Product } from './product';
 
 interface CategoryAttributes{ 
-  id: number; 
+  categoryId: number; 
   title: string; 
 } 
 
-interface CategoryCreationAttributes extends Optional<CategoryAttributes, 'id'>{} 
+interface CategoryCreationAttributes extends Optional<CategoryAttributes, 'categoryId'>{} 
 
 @Table ({ 
   tableName: "Categories" 
